@@ -1,13 +1,13 @@
 # TooDoo
-Super Unique and Innovative To-Do App
+Super unique and innovative to-do app
 
 ## Work Plan
-- [x] Create Repo
-- [ ] Create App Layout
-- [ ] Add Routing (Subscreens, Search and Filters)
-- [ ] Add State Management
-  - [ ] Adding/Deleting Tasks
-  - [ ] Editing Tasks
-  - [ ] Global Undo/Redo Operations
-- [ ] Create Tests For State Manager
-- [ ] Refactor and Reorganize The Project If Needed
+- [x] Create repo
+- [ ] Create app's layout
+- [ ] Add routing (subscreens, search and filters)
+- [ ] Add state management
+  - [ ] Adding and deleting tasks operations
+  - [ ] Editing tasks operation
+  - [ ] Global undo and redo operations
+- [ ] Create tests for state manager
+- [ ] Refactor and reorganize the project if needed

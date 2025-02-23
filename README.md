@@ -1,7 +1,9 @@
 # TooDoo
+
 Super unique and innovative to-do app
 
 ## Work Plan
+
 - [x] Create repo
 - [ ] Create app's layout
 - [ ] Add routing (subscreens, search and filters)

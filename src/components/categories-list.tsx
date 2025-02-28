@@ -60,7 +60,7 @@ function Menu() {
       <DropdownMenuContent>
         <DropdownMenuItem>Edit</DropdownMenuItem>
         <DropdownMenuItem>Add subcategory</DropdownMenuItem>
-        <DropdownMenuItem>Delete</DropdownMenuItem>
+        <DropdownMenuItem variant="destructive">Delete</DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );

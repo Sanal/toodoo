@@ -1,4 +1,5 @@
 import { Edit } from "lucide-react";
+import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -27,9 +28,11 @@ export default function TodoList({ className }: TodoList) {
                 {title}
               </span>
             </div>
-            <Button variant="ghost" size="icon">
-              <Edit />
-            </Button>
+            <Link href={{ pathname: `/task/${id}` }} scroll={false}>
+              <Button variant="ghost" size="icon">
+                <Edit />
+              </Button>
+            </Link>
           </div>
         </li>
       ))}

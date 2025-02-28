@@ -5,7 +5,7 @@ Super unique and innovative to-do app
 ## Work Plan
 
 - [x] Create repo
-- [ ] Create app's layout
+- [x] Create app's layout
 - [ ] Add routing (subscreens, search and filters)
 - [ ] Add state management
   - [ ] Adding and deleting tasks operations

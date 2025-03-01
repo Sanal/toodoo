@@ -17,18 +17,23 @@ export default function TodoList({ className }: TodoList) {
           <div
             className={cn(
               "flex gap-2 rounded-lg border",
-              completed && "opacity-50",
+              completed && "border-slate-200 bg-slate-50",
             )}
           >
             <div className="flex h-9 w-9 items-center justify-center">
               <Checkbox id={`todo-${id}`} checked={completed} />
             </div>
             <div className="flex h-9 flex-grow items-center">
-              <span className={cn("flex-grow", completed && "line-through")}>
+              <span
+                className={cn(
+                  "flex-grow",
+                  completed && "text-slate-400 line-through",
+                )}
+              >
                 {title}
               </span>
             </div>
-            <Link href={{ pathname: `/task/${id}` }} scroll={false}>
+            <Link href={`/task/${id}`} scroll={false}>
               <Button variant="ghost" size="icon">
                 <Edit />
               </Button>

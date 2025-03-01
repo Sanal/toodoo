@@ -11,12 +11,12 @@ export default function ControlPanel({ className }: ControlPanel) {
     <Container className={cn("grid grid-cols-3 gap-4", className)}>
       <InputWithButton
         inputProps={{ placeholder: "Enter category title" }}
-        buttonProps={{ type: "button" }}
+        buttonProps={{ type: "button", disabled: true }}
         buttonContent="Add"
       />
       <InputWithButton
-        inputProps={{ placeholder: "Text input with button" }}
-        buttonProps={{ type: "button" }}
+        inputProps={{ placeholder: "Enter task title" }}
+        buttonProps={{ type: "button", disabled: true }}
         buttonContent="Add"
         className="col-[2/-1]"
       />

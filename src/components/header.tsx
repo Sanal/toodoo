@@ -22,7 +22,7 @@ export default function Header({ className }: Header) {
         <Link href="/">
           <span
             className={cn(
-              "text-3xl transition-colors hover:text-green-700",
+              "text-3xl transition-colors hover:text-blue-600",
               logoFont.className,
             )}
           >
@@ -31,7 +31,7 @@ export default function Header({ className }: Header) {
         </Link>
         <div className="flex items-center gap-6">
           <span className="flex flex-nowrap items-center gap-2">
-            <Switch id="show-done" checked />
+            <Switch id="show-done" />
             <label htmlFor="show-done">Show&nbsp;done</label>
           </span>
           <Input type="search" placeholder="Search" className="w-[240px]" />

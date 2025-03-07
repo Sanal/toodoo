@@ -1,20 +1,28 @@
-import CategoriesList from "@/components/categories-list";
+import AppSidebar from "@/components/app-sidebar";
 import Container from "@/components/container";
-import ControlPanel from "@/components/control-panel";
-import Header from "@/components/header";
+import MainMenu from "@/components/main-menu";
 import ProgressBar from "@/components/progress-bar";
 import TodoList from "@/components/todo-llist";
+import { Input } from "@/components/ui/input";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 
 export default function Home() {
   return (
-    <div className="grid h-screen grid-cols-3 grid-rows-[auto_auto_auto_1fr] gap-4">
-      <Header className="col-span-full" />
-      <ProgressBar className="col-span-full" />
-      <ControlPanel className="col-span-full" />
-      <Container className="col-span-full grid grid-cols-3 gap-4">
-        <CategoriesList />
-        <TodoList className="col-[2/-1]" />
-      </Container>
-    </div>
+    <SidebarProvider>
+      <AppSidebar />
+      <main className="flex w-full flex-col gap-6 pb-16">
+        <Container className="flex justify-between gap-4 px-4 py-2">
+          <SidebarTrigger />
+          <Input type="search" placeholder="Search" className="max-w-[400px]" />
+          <MainMenu />
+        </Container>
+        <Container className="px-4">
+          <ProgressBar />
+        </Container>
+        <Container>
+          <TodoList className="px-4" />
+        </Container>
+      </main>
+    </SidebarProvider>
   );
 }

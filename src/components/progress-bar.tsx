@@ -1,4 +1,3 @@
-import Container from "@/components/container";
 import { Progress } from "@/components/ui/progress";
 
 interface ProgressBar {
@@ -6,9 +5,5 @@ interface ProgressBar {
 }
 
 export default function ProgressBar({ className }: ProgressBar) {
-  return (
-    <Container className={className}>
-      <Progress value={70} />
-    </Container>
-  );
+  return <Progress value={70} className={className} />;
 }

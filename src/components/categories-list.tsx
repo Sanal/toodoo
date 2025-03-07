@@ -37,7 +37,7 @@ export default function CategoriesList({ parentId = null }: CategoriesList) {
           const subcategories = list.filter(({ parentId }) => parentId === id);
           return (
             <li key={`category-${id}`} className="flex flex-col gap-1">
-              <div className="flex gap-2 rounded-lg border">
+              <div className="bg-background flex gap-2 rounded-lg border">
                 <div className="flex flex-grow gap-2">
                   <div className="flex h-9 w-9 items-center justify-center">
                     <Checkbox />
@@ -49,10 +49,7 @@ export default function CategoriesList({ parentId = null }: CategoriesList) {
                 <Menu categoryId={id} />
               </div>
               {Boolean(subcategories.length) && (
-                <div className="flex gap-1">
-                  <div className="w-1 rounded bg-gray-100" />
-                  <CategoriesList parentId={id} />
-                </div>
+                <CategoriesList parentId={id} />
               )}
             </li>
           );

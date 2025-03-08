@@ -2,35 +2,30 @@ import { Menu } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
-import { Switch } from "@/components/ui/switch";
+  DropdownMenu,
+  DropdownMenuCheckboxItem,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 export default function MainMenu() {
   return (
-    <Sheet>
-      <SheetTrigger asChild>
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
         <Button size="icon" variant="ghost">
           <Menu />
         </Button>
-      </SheetTrigger>
-      <SheetContent>
-        <SheetHeader>
-          <SheetTitle>Menu</SheetTitle>
-        </SheetHeader>
-        <div className="px-4">
-          <span className="flex flex-nowrap items-center gap-2">
-            <Switch id="show-done" />
-            <label htmlFor="show-done" className="text-sm">
-              Show&nbsp;done
-            </label>
-          </span>
-        </div>
-      </SheetContent>
-    </Sheet>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent>
+        <DropdownMenuLabel>Main Menu</DropdownMenuLabel>
+        <DropdownMenuSeparator />
+        <DropdownMenuGroup>
+          <DropdownMenuCheckboxItem>Show&nbsp;done</DropdownMenuCheckboxItem>
+        </DropdownMenuGroup>
+      </DropdownMenuContent>
+    </DropdownMenu>
   );
 }

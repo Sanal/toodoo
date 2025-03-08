@@ -1,6 +1,7 @@
 import { Edit } from "lucide-react";
 import Link from "next/link";
 
+import CurrentCategoryBadge from "@/components/current-category-badge";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { cn } from "@/lib/utils";
@@ -11,37 +12,37 @@ interface TodoList {
 
 export default function TodoList({ className }: TodoList) {
   return (
-    <ul className={cn("flex flex-col gap-1", className)}>
-      {todos.map(({ id, title, completed }) => (
-        <li key={`todo-${id}`}>
-          <div
-            className={cn(
-              "flex gap-2 rounded-lg border",
-              completed && "border-slate-200 bg-slate-50",
-            )}
-          >
-            <div className="flex h-9 w-9 items-center justify-center">
-              <Checkbox id={`todo-${id}`} checked={completed} />
+    <div className={cn("grid w-full gap-4", className)}>
+      <div>
+        <CurrentCategoryBadge />
+      </div>
+      <ul className={"flex flex-col gap-1"}>
+        {todos.map(({ id, title, completed }) => (
+          <li key={`todo-${id}`}>
+            <div className={"flex cursor-pointer gap-2 border-b-1 py-1"}>
+              <div className="flex h-9 w-9 items-center justify-center">
+                <Checkbox id={`todo-${id}`} checked={completed} />
+              </div>
+              <div className="flex h-9 flex-grow items-center">
+                <span
+                  className={cn(
+                    "flex-grow",
+                    completed && "text-current/50 line-through",
+                  )}
+                >
+                  {title}
+                </span>
+              </div>
+              <Link href={`/task/${id}`} scroll={false}>
+                <Button variant="ghost" size="icon">
+                  <Edit />
+                </Button>
+              </Link>
             </div>
-            <div className="flex h-9 flex-grow items-center">
-              <span
-                className={cn(
-                  "flex-grow",
-                  completed && "text-slate-400 line-through",
-                )}
-              >
-                {title}
-              </span>
-            </div>
-            <Link href={`/task/${id}`} scroll={false}>
-              <Button variant="ghost" size="icon">
-                <Edit />
-              </Button>
-            </Link>
-          </div>
-        </li>
-      ))}
-    </ul>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
 

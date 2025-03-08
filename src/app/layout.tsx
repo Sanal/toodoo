@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 
 import "./globals.css";
 
+import ThemeProvider from "@/components/theme-provider";
 import { cn } from "@/lib/utils";
 
 const sansFont = Inter({
@@ -23,10 +24,12 @@ export default function RootLayout({
   modal: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={cn(sansFont.variable, "antialiased")}>
-        {modal}
-        {children}
+    <html lang="en" suppressHydrationWarning>
+      <body className={cn(sansFont.variable, "bg-sidebar antialiased")}>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          {modal}
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

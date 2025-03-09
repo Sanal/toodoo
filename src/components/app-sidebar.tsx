@@ -93,7 +93,9 @@ export default function AppSidebar({ side = "left" }: AppSidebar) {
                         </SidebarMenuAction>
                       </DropdownMenuTrigger>
                       <DropdownMenuContent side="right" align="start">
-                        <DropdownMenuItem>
+                        <DropdownMenuItem
+                          onClick={() => router.push(`/category/${id}`)}
+                        >
                           <span>Edit</span>
                         </DropdownMenuItem>
                         <DropdownMenuItem variant="destructive">

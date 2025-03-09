@@ -1,3 +1,5 @@
+import { cookies } from "next/headers";
+
 import AppSidebar from "@/components/app-sidebar";
 import Container from "@/components/container";
 import ThemeSwitcher from "@/components/theme-switcher";
@@ -9,13 +11,16 @@ import {
   SidebarTrigger,
 } from "@/components/ui/sidebar";
 
-export default function Home() {
+export default async function Home() {
+  const cookieStore = await cookies();
+  const defaultOpen = cookieStore.get("sidebar_state")?.value === "true";
+
   return (
-    <SidebarProvider>
+    <SidebarProvider defaultOpen={defaultOpen}>
       <AppSidebar />
       <SidebarInset>
         <main className="flex w-full flex-col gap-6 pb-16">
-          <div className="flex justify-between gap-4 px-4 py-2 md:p-[0.375rem]">
+          <div className="flex justify-between gap-4 p-[0.375rem]">
             <SidebarTrigger />
             <Input
               type="search"

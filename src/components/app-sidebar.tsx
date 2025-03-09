@@ -31,17 +31,15 @@ import {
   SidebarMenuAction,
   SidebarMenuButton,
   SidebarMenuItem,
+  useSidebar,
 } from "@/components/ui/sidebar";
 import { cn, createQueryString } from "@/lib/utils";
 
-interface AppSidebar {
-  side?: "left" | "right";
-}
-
-export default function AppSidebar({ side = "left" }: AppSidebar) {
+export default function AppSidebar() {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
+  const { setOpenMobile } = useSidebar();
 
   const getQueryString = useCallback(
     (name: string, value: string) =>
@@ -49,8 +47,14 @@ export default function AppSidebar({ side = "left" }: AppSidebar) {
     [searchParams],
   );
 
+  const handleCategoryClick = (categoryId: number) => {
+    const newPath = `${pathname}?${getQueryString("category", categoryId.toString())}`;
+    router.push(newPath);
+    setOpenMobile(false);
+  };
+
   return (
-    <Sidebar side={side} variant="inset">
+    <Sidebar variant="inset">
       <SidebarHeader>
         <Header />
       </SidebarHeader>
@@ -74,20 +78,13 @@ export default function AppSidebar({ side = "left" }: AppSidebar) {
                     <SidebarMenuButton
                       variant={isSelected ? "outline" : undefined}
                       className={cn(isSelected && "pointer-events-none border")}
-                      onClick={() =>
-                        router.push(
-                          `${pathname}?${getQueryString("category", id.toString())}`,
-                        )
-                      }
+                      onClick={() => handleCategoryClick(id)}
                     >
                       <CategoryIcon name={icon} />
                       <span className="flex items-center gap-1">{title}</span>
                     </SidebarMenuButton>
                     <DropdownMenu>
-                      <DropdownMenuTrigger
-                        asChild
-                        className={cn(isSelected && "hover:bg-gray-300/60")}
-                      >
+                      <DropdownMenuTrigger asChild>
                         <SidebarMenuAction>
                           <MoreHorizontal />
                         </SidebarMenuAction>

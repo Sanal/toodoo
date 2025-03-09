@@ -54,6 +54,11 @@ export default function AppSidebar() {
     setOpenMobile(false);
   };
 
+  const handleCategoryFormCall = (categoryId?: number) => {
+    const _categoryId = categoryId || "new";
+    router.push(`/category/${_categoryId}?${searchParams}`, { scroll: false });
+  };
+
   return (
     <Sidebar variant="inset">
       <SidebarHeader>
@@ -64,7 +69,7 @@ export default function AppSidebar() {
           <SidebarGroupLabel>Categories</SidebarGroupLabel>
           <SidebarGroupAction
             title="Add Category"
-            onClick={() => router.push(`/category/new`, { scroll: false })}
+            onClick={() => handleCategoryFormCall()}
           >
             <Plus /> <span className="sr-only">Add Category</span>
           </SidebarGroupAction>
@@ -92,7 +97,7 @@ export default function AppSidebar() {
                       </DropdownMenuTrigger>
                       <DropdownMenuContent side="right" align="start">
                         <DropdownMenuItem
-                          onClick={() => router.push(`/category/${id}`)}
+                          onClick={() => handleCategoryFormCall(id)}
                         >
                           <span>Edit</span>
                         </DropdownMenuItem>

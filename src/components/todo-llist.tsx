@@ -1,5 +1,8 @@
-import { Edit } from "lucide-react";
+"use client";
+
+import { EllipsisVertical, MoreHorizontal } from "lucide-react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 
 import CurrentCategoryBadge from "@/components/current-category-badge";
 import { Button } from "@/components/ui/button";
@@ -11,6 +14,8 @@ interface TodoList {
 }
 
 export default function TodoList({ className }: TodoList) {
+  const searchParams = useSearchParams();
+
   return (
     <div className={cn("grid w-full gap-4", className)}>
       <div>
@@ -18,10 +23,17 @@ export default function TodoList({ className }: TodoList) {
       </div>
       <ul className={"flex flex-col gap-1"}>
         {todos.map(({ id, title, completed }) => (
-          <li key={`todo-${id}`}>
-            <div className={"flex cursor-pointer gap-2 border-b-1 py-1"}>
+          <li key={`todo-${id}`} className="flex items-center gap-1">
+            <div className="text-border cursor-grab active:cursor-grabbing">
+              <EllipsisVertical />
+            </div>
+            <div className="hover:bg-accent/50 flex flex-grow gap-2 rounded-[0.75rem] p-1">
               <div className="flex h-9 w-9 items-center justify-center">
-                <Checkbox id={`todo-${id}`} checked={completed} />
+                <Checkbox
+                  id={`todo-${id}`}
+                  checked={completed}
+                  className="bg-background"
+                />
               </div>
               <div className="flex h-9 flex-grow items-center">
                 <span
@@ -33,9 +45,9 @@ export default function TodoList({ className }: TodoList) {
                   {title}
                 </span>
               </div>
-              <Link href={`/task/${id}`} scroll={false}>
+              <Link href={`/task/${id}?${searchParams}`} scroll={false}>
                 <Button variant="ghost" size="icon">
-                  <Edit />
+                  <MoreHorizontal />
                 </Button>
               </Link>
             </div>

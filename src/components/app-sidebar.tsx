@@ -3,10 +3,12 @@
 import {
   BriefcaseBusiness,
   Dumbbell,
+  Edit,
   GraduationCap,
   MoreHorizontal,
   Plus,
   Star,
+  Trash,
 } from "lucide-react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useCallback } from "react";
@@ -17,6 +19,7 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import {
@@ -99,10 +102,11 @@ export default function AppSidebar() {
                         <DropdownMenuItem
                           onClick={() => handleCategoryFormCall(id)}
                         >
-                          <span>Edit</span>
+                          <Edit /> <span>Edit</span>
                         </DropdownMenuItem>
+                        <DropdownMenuSeparator />
                         <DropdownMenuItem variant="destructive">
-                          <span>Delete</span>
+                          <Trash /> <span>Delete</span>
                         </DropdownMenuItem>
                       </DropdownMenuContent>
                     </DropdownMenu>

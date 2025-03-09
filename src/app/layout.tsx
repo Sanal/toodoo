@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 
 import "./globals.css";
@@ -16,6 +16,19 @@ export const metadata: Metadata = {
   description: "Super unique and innovative to-do app",
 };
 
+export const viewport: Viewport = {
+  themeColor: [
+    {
+      media: "(prefers-color-scheme: dark)",
+      color: "#171717",
+    },
+    {
+      media: "(prefers-color-scheme: light)",
+      color: "#fafafa",
+    },
+  ],
+};
+
 export default function RootLayout({
   children,
   modal,
@@ -25,7 +38,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={cn(sansFont.variable, "bg-sidebar antialiased")}>
+      <body className={cn(sansFont.variable, "antialiased")}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {modal}
           {children}

@@ -58,10 +58,10 @@ export default function AppSidebar({ side = "left" }: AppSidebar) {
         <SidebarGroup>
           <SidebarGroupLabel>Categories</SidebarGroupLabel>
           <SidebarGroupAction
-            title="Add Project"
+            title="Add Category"
             onClick={() => router.push(`/category/new`, { scroll: false })}
           >
-            <Plus /> <span className="sr-only">Add Project</span>
+            <Plus /> <span className="sr-only">Add Category</span>
           </SidebarGroupAction>
           <SidebarGroupContent>
             <SidebarMenu>

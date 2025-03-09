@@ -11,6 +11,7 @@ import {
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useCallback } from "react";
 
+import GithubIcon from "@/components/github-icon";
 import Header from "@/components/header";
 import {
   DropdownMenu,
@@ -107,7 +108,14 @@ export default function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
-      <SidebarFooter />
+      <SidebarFooter>
+        <a
+          href="https://github.com/sanal/toodoo"
+          className="flex items-center gap-2 text-xl hover:underline"
+        >
+          <GithubIcon /> <span className="text-sm">Source Code</span>
+        </a>
+      </SidebarFooter>
     </Sidebar>
   );
 }

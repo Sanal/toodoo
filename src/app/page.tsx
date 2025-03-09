@@ -2,9 +2,9 @@ import { cookies } from "next/headers";
 
 import AppSidebar from "@/components/app-sidebar";
 import Container from "@/components/container";
+import Search from "@/components/search";
 import ThemeSwitcher from "@/components/theme-switcher";
 import TodoList from "@/components/todo-llist";
-import { Input } from "@/components/ui/input";
 import {
   SidebarInset,
   SidebarProvider,
@@ -22,11 +22,7 @@ export default async function Home() {
         <main className="flex w-full flex-col gap-6 pb-16">
           <div className="flex justify-between gap-4 p-[0.375rem]">
             <SidebarTrigger />
-            <Input
-              type="search"
-              placeholder="Search"
-              className="max-w-[400px]"
-            />
+            <Search className="max-w-[400px]" />
             <ThemeSwitcher />
           </div>
           <Container>

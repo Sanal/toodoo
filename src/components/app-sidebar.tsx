@@ -37,6 +37,7 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar";
+import { CATEGORY_QUERY_KEY } from "@/constants";
 import { cn, createQueryString } from "@/lib/utils";
 
 export default function AppSidebar() {
@@ -52,7 +53,7 @@ export default function AppSidebar() {
   );
 
   const handleCategoryClick = (categoryId: number) => {
-    const newPath = `${pathname}?${getQueryString("category", categoryId.toString())}`;
+    const newPath = `${pathname}?${getQueryString(CATEGORY_QUERY_KEY, categoryId.toString())}`;
     router.push(newPath);
     setOpenMobile(false);
   };
@@ -80,7 +81,7 @@ export default function AppSidebar() {
             <SidebarMenu>
               {categoriesData.map(({ id, title, icon }) => {
                 const isSelected =
-                  searchParams.get("category") === id.toString();
+                  searchParams.get(CATEGORY_QUERY_KEY) === id.toString();
 
                 return (
                   <SidebarMenuItem key={`category-${id}`}>

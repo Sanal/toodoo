@@ -4,7 +4,8 @@ import { EllipsisVertical, MoreHorizontal } from "lucide-react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 
-import CurrentCategoryBadge from "@/components/current-category-badge";
+import CategoryFilter from "@/components/category-filter";
+import SearchFilter from "@/components/search-filter";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { cn } from "@/lib/utils";
@@ -18,8 +19,9 @@ export default function TodoList({ className }: TodoList) {
 
   return (
     <div className={cn("grid w-full gap-4", className)}>
-      <div>
-        <CurrentCategoryBadge />
+      <div className="flex gap-2">
+        <CategoryFilter />
+        <SearchFilter />
       </div>
       <ul className={"flex flex-col gap-1"}>
         {todos.map(({ id, title, completed }) => (

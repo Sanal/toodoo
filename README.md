@@ -6,7 +6,7 @@ Super unique and innovative to-do app
 
 - [x] Create repo
 - [x] Create app's layout
-- [ ] Add routing (subscreens, search and filters)
+- [x] Add routing (subscreens, search and filters)
 - [ ] Add state management
   - [ ] Adding and deleting tasks operations
   - [ ] Editing tasks operation
